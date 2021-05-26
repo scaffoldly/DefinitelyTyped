@@ -65,6 +65,17 @@ export interface Model<T> {
     config(config: { dynamodb?: DynamoDB; tableName?: string }): any;
 }
 
+export interface Page<T> {
+    Items: Model<T>[];
+    Count: number;
+    ScannedCount?: number;
+    LastEvaluatedKey?: any;
+    ConsumedCapacity?: {
+        CapacityUnits: number;
+        TableName: string;
+    };
+}
+
 export namespace Model {
     interface OperationOptions {
         UpdateExpression?: any;

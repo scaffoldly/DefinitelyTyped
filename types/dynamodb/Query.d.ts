@@ -1,4 +1,5 @@
 import { ExecuteFilter } from './ExecuteFilter';
+import { Page } from './Model';
 
 export interface Query<T> {
     (hashKey: string, table: any, serializer: any): void;
@@ -28,7 +29,7 @@ export interface Query<T> {
     contains(name: string): Query<T>;
     notContains(name: string): Query<T>;
     filter(keyName: string): Query<T>;
-    exec: ExecuteFilter<T>;
+    exec: ExecuteFilter<Page<T>[]>;
     buildKey(): string;
     buildRequest(): any;
     equals: (...args: any[]) => Query<T>;

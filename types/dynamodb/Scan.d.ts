@@ -1,4 +1,5 @@
 import { ExecuteFilter } from './ExecuteFilter';
+import { Page } from './Model';
 
 export interface Scan<T> {
     limit(num: number): Scan<T>;
@@ -31,7 +32,7 @@ export interface Scan<T> {
     lt: (...args: any[]) => Scan<T>;
     gte: (...args: any[]) => Scan<T>;
     gt: (...args: any[]) => Scan<T>;
-    exec: ExecuteFilter<T>;
+    exec: ExecuteFilter<Page<T>[]>;
     buildRequest(): any;
 }
 

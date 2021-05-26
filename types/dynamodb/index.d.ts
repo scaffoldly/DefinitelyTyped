@@ -49,8 +49,10 @@ export function dynamoDriver(driver?: DynamoDB): DynamoDB;
 export function documentClient(docClient?: DocumentClient): DocumentClient;
 export function reset(): void;
 export function Set(data: ReadonlyArray<any>, type: string): DynamoDbSet;
-export function define(name: string, config: DefineConfig): typeof Model;
-export function model(name: string, model?: Model): typeof Model;
+export function define(name: string, config: DefineConfig): Model<any>;
+export function define<T>(name: string, config: DefineConfig): Model<T>;
+export function model(name: string, model?: Model<any>): Model<any>;
+export function model<T>(name: string, model?: Model<T>): Model<T>;
 export const createTables: CreateTables;
 export const types: {
     stringSet: () => AnySchema;
